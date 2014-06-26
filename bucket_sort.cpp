@@ -28,7 +28,7 @@ void bucket_sort(int a[], int from, int len, int max)
     count[i] = count[i] + count[i-1];  // 意思为有多少个数是小于或者等于i的
   }
   
-  memcpy(temp, a, len);
+  memcpy(temp, a, sizeof(temp));
   
   for(int k = len-1; k >= 0; k--) // 为了保持稳定性从最后一个开始
   {
@@ -39,7 +39,7 @@ void bucket_sort(int a[], int from, int len, int max)
 int main()
 {
   int array[] = {10, 9, 8, 7, 6, 5, 4};
-  bucket_sort(array, 0, 7, 8);
+  bucket_sort(array, 0, 7, 11);
   for(int i = 0; i < 7; i++)
     {
       cout << array[i] << " ";

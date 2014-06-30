@@ -18,67 +18,61 @@
 
 #include <iostream>
 #include <cstring>
-
+#include <stdlib.h>
 using namespace std;
 
-void merge_sort(int a[])
+void merge_sort(int *arr, int arr_size);
+void merge_sortsub(int *arr1, int arr1_size, int *arr2, int arr2_size);
+
+void merge_sort(int *arr, int arr_size)
 {
-  if(a.size()==1){
-    return a;
-  }
-  
-  int half = a.size()/2;
-  int arr1[half];
-  int arr2[a.size() - half];
-  
-  memcpy(arr1, a, arr1.size());
-  memcpy(arr2, a, arr2.size());
-  
-  arr1 = merge_sort(arr1);
-  arr2 = merge_sort(arr2);
-  
-  return merge_sortsub(arr1, arr2);
+        if(arr_size > 1)
+        {
+                int *arr1 = arr;
+                int arr1_size = arr_size / 2;
+                int *arr2 = arr + arr1_size;
+                int arr2_size = arr_size - arr1_size;
+
+                merge_sort(arr1, arr1_size);
+                merge_sort(arr2, arr2_size);
+
+                merge_sortsub( arr1, arr1_size, arr2, arr2_size);
+        }
 }
 
-void merge_sortsub(int a[], int b[])
+void merge_sortsub( int *arr1, int arr1_size, int *arr2, int arr2_size)
 {
-  int result[arr1.size() + arr2.size()];
-  int i = 0, j = 0, k = 0;
-  while(true){
-    if(arr1[i] < arr2[j]){
-      result[k] = arr1[i];
-      if(++i > arr1.size()-1){
-        break;
-      }
-    } else {
-      result[k] = arr2[j];
-      if(++j > arr2.size()-1){
-       break;
-      }
-    }
-    k++;
-  }
-    
-  for(; i < arr1.size(); i++){
-    result[++k] = arr1[i];
-  }
-  for(; j < arr2.size(); j++){
-    rssult[++k] = arr2[j];
-  }
-  return result;
+        int i, j, k = 0;
+        int *arr = new int[arr1_size + arr2_size+1];
+
+        while(i < arr1_size && j < arr2_size){
+                arr[k++] = arr1[i] < arr2[j] ? arr1[i++] : arr2[j++];
+        }
+
+        while(i < arr1_size){
+                arr[k++] = arr1[i++];
+        }
+
+        while(j < arr2_size){
+                arr[k++] = arr2[j++];
+
+        }
+
+        for(int ii = 0; ii < (arr1_size + arr2_size); ++ii){
+                arr1[ii] = arr[ii];
+        }
 }
 
 
 int main()
 {
-  int array[] = {10, 9, 8, 7, 6, 5, 4};
-  merge_sort(array);
-  for(int i = 0; i < 7; i++)
-    {
-      cout << array[i] << " ";
-    }
-  return 0;
-}  
+        int a[] = {10, 9, 8, 7 , 6, 5, 4};
+        merge_sort(a, 7);
+        for(int i = 0; i < 8; i++){
+                cout << a[i] << " ";
+        }
+        return 0;
+}
 
 
 

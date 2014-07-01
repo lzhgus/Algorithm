@@ -43,7 +43,7 @@ void merge_sort(int *arr, int arr_size)
 
 void merge_sortsub( int *arr1, int arr1_size, int *arr2, int arr2_size)
 {
-        int i=0, j=0, k = 0;
+        int i = 0, j = 0, k = 0;
         int *arr = new int[arr1_size + arr2_size+1];
 
         while(i < arr1_size && j < arr2_size){
@@ -69,7 +69,7 @@ int main()
 {
         int a[] = {10, 9, 8, 7 , 6, 5, 4};
         merge_sort(a, 7);
-        for(int i = 0; i < 8; i++){
+        for(int i = 0; i < 7; i++){
                 cout << a[i] << " ";
         }
         return 0;

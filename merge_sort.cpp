@@ -43,7 +43,7 @@ void merge_sort(int *arr, int arr_size)
 
 void merge_sortsub( int *arr1, int arr1_size, int *arr2, int arr2_size)
 {
-        int i, j, k = 0;
+        int i=0, j=0, k = 0;
         int *arr = new int[arr1_size + arr2_size+1];
 
         while(i < arr1_size && j < arr2_size){

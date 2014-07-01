@@ -56,12 +56,12 @@ void merge_sortsub( int *arr1, int arr1_size, int *arr2, int arr2_size)
 
         while(j < arr2_size){
                 arr[k++] = arr2[j++];
-
         }
 
         for(int ii = 0; ii < (arr1_size + arr2_size); ++ii){
                 arr1[ii] = arr[ii];
         }
+        
         delete[] arr;
 }
 

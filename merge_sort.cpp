@@ -1,5 +1,5 @@
 /*
-  有些问题，哪个大神帮我改改！
+  kai wang 大神帮我搞定了
   归并排序， 建立在归并操作上的有效排序，采用分治法。 
   1. 申请空间，使其大小为两个已排序列之和， 用来存储合并后的序列。
   2. 设定两个指针，最初位置分别为两个已排序列的起始位置。
@@ -62,6 +62,7 @@ void merge_sortsub( int *arr1, int arr1_size, int *arr2, int arr2_size)
         for(int ii = 0; ii < (arr1_size + arr2_size); ++ii){
                 arr1[ii] = arr[ii];
         }
+        delete[] arr;
 }
 
 

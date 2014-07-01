@@ -11,6 +11,7 @@
 */
 
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 void count_sort(int a[])

@@ -14,9 +14,8 @@
 #include <cstring>
 using namespace std;
 
-void count_sort(int a[])
+void count_sort(int a[], int len)
 {
-  int len = sizeof(a)/sizeof(int);
   int temp[len];
   int max = a[0], min = a[0];
   for(int i : a){
@@ -52,7 +51,7 @@ void count_sort(int a[])
 int main()
 {
   int array[] = {10, 9, 8, 7, 6, 5, 4};
-  count_sort(array, 0, 7, 11);
+  count_sort(array, 7);
   for(int i = 0; i < 7; i++)
     {
       cout << array[i] << " ";
